@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모자은 — Visual Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #fff; color: #1a1a1a; font-family: 'DM Sans', 'Noto Sans KR', sans-serif; overflow-x: hidden; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 0 8vw; background: #fff; position: relative;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 8vw; right: 8vw;
+    height: 1px; background: #f0f0f0;
+  }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase;
+    color: #bbb; margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero-name {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(44px, 8.5vw, 95px);
+    font-weight: 300; line-height: 1; letter-spacing: -2px; color: #1a1a1a;
+    opacity: 0; animation: fadeUp 0.9s ease 0.3s forwards;
+  }
+
+  .hero-divider {
+    width: 36px; height: 1px; background: #ddd; margin: 28px 0;
+    opacity: 0; animation: fadeUp 0.9s ease 0.45s forwards;
+  }
+  .hero-role {
+    font-size: 12px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: #bbb;
+    opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards;
+  }
+  .hero-desc {
+    margin-top: 18px; font-size: 15px; font-weight: 300; color: #aaa; line-height: 1.9; max-width: 360px;
+    opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    opacity: 0; animation: fadeUp 0.9s ease 0.8s forwards;
+  }
+  .scroll-line {
+    width: 1px; height: 44px;
+    background: linear-gradient(to bottom, #bbb, transparent);
+    margin: 0 auto; animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 140px 8vw; background: #fafafa;
+    display: flex; gap: 64px; align-items: flex-start; flex-wrap: wrap;
+  }
+  .about-left { flex: 0 0 auto; }
+  .about-num { font-size: 10px; font-weight: 300; letter-spacing: 3px; color: #ccc; text-transform: uppercase; margin-bottom: 12px; }
+  .about-content { flex: 1; min-width: 260px; }
+  .about-heading {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(28px, 4vw, 52px); font-weight: 500; line-height: 1.3;
+    letter-spacing: -1.5px; color: #1a1a1a; margin-bottom: 20px;
+  }
+  .about-heading .light { font-weight: 100; color: #bbb; }
+  .about-text { font-size: 14px; font-weight: 300; color: #888; line-height: 2; max-width: 440px; }
+
+  /* CAREER */
+  .career { padding: 100px 8vw; background: #fff; }
+  .career-header { margin-bottom: 56px; }
+  .sec-label { font-size: 10px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: #ccc; display: block; margin-bottom: 12px; }
+  .sec-title { font-family: 'Noto Sans KR', sans-serif; font-size: clamp(24px, 3.5vw, 40px); font-weight: 700; letter-spacing: -1px; color: #1a1a1a; }
+  .sec-title .light { font-weight: 100; color: #ccc; }
+
+  .career-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; border: 1px solid #f0f0f0; border-radius: 16px; overflow: hidden; margin-bottom: 16px;
+  }
+  .career-card { padding: 24px 28px; background: #fff; border-bottom: 1px solid #f5f5f5; transition: background 0.25s; }
+  .career-card:hover { background: #fafafa; }
+  .career-card:nth-last-child(-n+2) { border-bottom: none; }
+  .career-period { font-size: 10px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: #ccc; margin-bottom: 10px; }
+  .career-place { font-family: 'Noto Sans KR', sans-serif; font-size: 16px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; letter-spacing: -0.3px; }
+  .career-loc { font-size: 12px; font-weight: 300; color: #bbb; margin-bottom: 12px; }
+  .career-desc { font-size: 13px; font-weight: 300; color: #999; line-height: 1.8; }
+
+  .career-now {
+    padding: 28px 32px; background: #1a1a1a; border-radius: 16px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;
+  }
+  .career-now-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: #fff; flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .career-now-text { flex: 1; min-width: 200px; }
+  .career-now-label { font-size: 10px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 5px; }
+  .career-now-main { font-family: 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 400; color: #fff; line-height: 1.6; }
+  .career-now-main span { font-weight: 100; color: rgba(255,255,255,0.45); }
+
+  .certs { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .cert-pill {
+    padding: 8px 18px; border: 1px solid #eee; border-radius: 40px;
+    font-size: 12px; font-weight: 300; color: #888; background: #fafafa;
+  }
+  .cert-pill-label {
+    font-size: 10px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase;
+    color: #ccc; align-self: center;
+  }
+  .cert-pill-divider {
+    width: 1px; height: 20px; background: #eee; align-self: center;
+  }
+
+  /* REVIEWS */
+  .reviews { padding: 100px 8vw; background: #fafafa; }
+
+  /* 숨고 뱃지 */
+  .soomgo-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid #f0f0f0;
+    border-radius: 40px; padding: 12px 24px;
+    margin-bottom: 56px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .soomgo-star { font-size: 18px; }
+  .soomgo-score { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 300; color: #1a1a1a; letter-spacing: -0.5px; }
+  .soomgo-score strong { font-weight: 500; }
+  .soomgo-divider { width: 1px; height: 18px; background: #eee; }
+  .soomgo-platform { font-size: 12px; font-weight: 300; color: #bbb; letter-spacing: 1px; }
+
+  /* 키워드 바 */
+  .keyword-section { margin-bottom: 56px; }
+  .keyword-title { font-size: 11px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: #ccc; margin-bottom: 20px; }
+  .keyword-bars { display: flex; flex-direction: column; gap: 12px; max-width: 560px; }
+  .keyword-row { display: flex; align-items: center; gap: 16px; }
+  .keyword-name { font-size: 13px; font-weight: 300; color: #555; width: 140px; flex-shrink: 0; }
+  .keyword-bar-wrap { flex: 1; height: 6px; background: #f0f0f0; border-radius: 3px; overflow: hidden; }
+  .keyword-bar { height: 100%; background: #1a1a1a; border-radius: 3px; transition: width 1s ease; }
+  .keyword-count { font-size: 12px; font-weight: 300; color: #bbb; width: 28px; text-align: right; flex-shrink: 0; }
+
+  /* 후기 카드 */
+  .review-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .review-card {
+    background: #fff; border: 1px solid #f0f0f0; border-radius: 16px;
+    padding: 28px 24px; transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .review-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateY(-2px); }
+  .review-stars { color: #f5a623; font-size: 12px; margin-bottom: 14px; letter-spacing: 2px; }
+  .review-text { font-size: 13px; font-weight: 300; color: #666; line-height: 1.85; margin-bottom: 16px; }
+  .review-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .review-tag {
+    font-size: 10px; font-weight: 300; color: #999;
+    background: #f7f7f7; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.2px;
+  }
+  .review-meta { font-size: 11px; font-weight: 200; color: #ccc; }
+
+  /* WORKS */
+  .works-header { padding: 100px 8vw 48px; text-align: center; }
+  .works-header .sec-label { color: #bbb; }
+  .works-header .sec-title { color: #555; }
+  .works-header .sec-title .light { color: #ccc; }
+  .works-header p { color: #bbb; }
+  .works { padding: 0 8vw 100px; }
+  .work-item { margin-bottom: 80px; }
+  .work-item:last-child { margin-bottom: 0; }
+
+  .slider-outer { width: 100%; max-width: 960px; margin: 0 auto; }
+  .slider-wrap {
+    position: relative; width: 100%; border-radius: 16px; overflow: hidden;
+    cursor: col-resize; user-select: none;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    aspect-ratio: 16/10; background: #eee;
+    clip-path: inset(0 round 16px);
+  }
+  .slider-before { position: absolute; inset: 0; overflow: hidden; }
+  .slider-before img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block; pointer-events: none;
+    object-position: center top;
+  }
+  .slider-after-wrap { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; }
+  .slider-after-wrap img {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; pointer-events: none;
+    object-position: center top;
+  }
+  .slider-handle {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 100%; background: rgba(255,255,255,0.9);
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none; z-index: 3;
+  }
+  .slider-circle {
+    width: 40px; height: 40px; background: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.13); flex-shrink: 0;
+  }
+  .slider-circle svg { width: 16px; height: 16px; }
+  .slider-labels { position: absolute; bottom: 16px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 18px; pointer-events: none; z-index: 4; }
+  .slider-label {
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    color: white; background: rgba(0,0,0,0.35); border: none; backdrop-filter: blur(6px);
+  }
+
+  /* SKILLS */
+  .skills { display: none; }
+  .skills-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .skills-label { font-size: 10px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: #ccc; }
+  .skills-row { display: flex; gap: 10px; }
+  .skill-pill {
+    display: flex; align-items: center; gap: 7px; padding: 9px 18px;
+    background: #fafafa; border-radius: 40px; border: 1px solid #eee;
+    font-size: 13px; font-weight: 300; color: #444;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .skill-pill:hover { box-shadow: 0 5px 16px rgba(0,0,0,0.07); transform: translateY(-1px); }
+  .skill-pill span { font-size: 15px; }
+
+  /* CONTACT */
+  .contact { padding: 120px 8vw; text-align: center; background: #fafafa; border-top: 1px solid #f0f0f0; }
+  .contact-title { font-family: 'Noto Sans KR', sans-serif; font-size: clamp(30px, 5vw, 60px); font-weight: 300; letter-spacing: -2px; color: #1a1a1a; margin-bottom: 12px; }
+  .contact-title strong { font-weight: 500; }
+  .contact-sub { font-size: 14px; font-weight: 300; color: #bbb; margin-bottom: 36px; }
+  .contact-btn {
+    display: inline-block; padding: 13px 38px; background: #1a1a1a; color: white;
+    border-radius: 40px; text-decoration: none; font-size: 13px; font-weight: 300; letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .contact-btn:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+  .contact-btn-outline {
+    display: inline-block; padding: 13px 38px;
+    background: transparent; color: #1a1a1a;
+    border: 1px solid #ddd; border-radius: 40px;
+    text-decoration: none; font-size: 13px; font-weight: 300; letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .contact-btn-outline:hover { border-color: #aaa; transform: scale(1.03); }
+  .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  footer {
+    padding: 20px 8vw; display: flex; justify-content: space-between;
+    border-top: 1px solid #f5f5f5;
+    font-size: 11px; font-weight: 200; color: #ccc; flex-wrap: wrap; gap: 8px;
+  }
+
+
+  /* TIMELINE */
+  .timeline {
+    max-width: 680px;
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 1px; background: #ebebeb;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: #e0e0e0; border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #e0e0e0;
+    flex-shrink: 0;
+    position: absolute; left: -28px; top: 18px;
+  }
+  .tl-active .tl-dot {
+    background: #1a1a1a; border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #1a1a1a;
+    animation: dotPulse 1.6s ease-in-out infinite;
+  }
+  .tl-card {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    padding: 22px 26px;
+    transition: box-shadow 0.2s;
+  }
+  .tl-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.05); }
+  .tl-active .tl-card {
+    border-color: #1a1a1a;
+    background: #1a1a1a;
+  }
+  .tl-active .tl-card .tl-place { color: #fff; }
+  .tl-active .tl-card .tl-loc { color: rgba(255,255,255,0.4); }
+  .tl-active .tl-card .tl-desc { color: rgba(255,255,255,0.55); }
+  .tl-active .tl-card .tl-num { color: rgba(255,255,255,0.25); }
+  .tl-top {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;
+  }
+  .tl-place {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px; font-weight: 500;
+    color: #1a1a1a; letter-spacing: -0.3px;
+  }
+  .tl-loc {
+    font-size: 11px; font-weight: 300;
+    color: #bbb; letter-spacing: 0.5px;
+    background: #f7f7f7; padding: 3px 10px; border-radius: 20px;
+  }
+  .tl-active .tl-card .tl-loc { background: rgba(255,255,255,0.1); }
+  .tl-num {
+    font-size: 10px; font-weight: 300;
+    letter-spacing: 2px; color: #ccc; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-desc {
+    font-size: 13px; font-weight: 300;
+    color: #999; line-height: 1.75;
+  }
+
+  @keyframes dotPulse {
+    0%   { box-shadow: 0 0 0 0px rgba(26,26,26,0.5); background: #1a1a1a; }
+    50%  { box-shadow: 0 0 0 7px rgba(26,26,26,0); background: #555; }
+    100% { box-shadow: 0 0 0 0px rgba(26,26,26,0); background: #1a1a1a; }
+  }
+  .soomgo-hint {
+    margin-top: 16px; font-size: 13px; font-weight: 300;
+    color: #bbb; text-align: center;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(255,255,255,0.15); } 50% { box-shadow: 0 0 0 7px rgba(255,255,255,0.06); } }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s ease, transform 0.75s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .career-grid { grid-template-columns: 1fr; }
+    .career-card:nth-last-child(-n+2) { border-bottom: 1px solid #f5f5f5; }
+    .career-card:last-child { border-bottom: none; }
+    .review-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Photo Retouching · Visual Design</p>
+  <h1 class="hero-name">모자은</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-role">Retoucher</p>
+  <p class="hero-desc">다양한 후기가 말해주는<br>만족도 높은 보정을 선사해드려요.</p>
+  <div class="hero-scroll"><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left reveal"><p class="about-num">About</p></div>
+  <div class="about-content reveal">
+    <h2 class="about-heading">디테일을<br><span class="light">책임집니다</span></h2>
+    <p class="about-text">전체적인 밸런스, 인물 고유의 아름다움을 최우선으로 생각합니다.</p>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works-header" id="works">
+  <span class="sec-label reveal">Works</span>
+  <h2 class="sec-title reveal">Before <span class="light">&amp;</span> After</h2>
+  <p style="margin-top:10px;font-size:14px;font-weight:300;color:#bbb;" class="reveal">좌측 Before, 우측 After 입니다.</p>
+</section>
+<section class="works">
+
+  <!-- 배경 확장 -->
+  <div class="work-item reveal">
+    <p class="work-category">배경 확장</p>
+    <div class="pair-outer"><img src="pair_bg1.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+  <div class="work-item reveal">
+    <div class="pair-outer"><img src="pair_bg2.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+  <div class="work-item reveal">
+    <div class="pair-outer"><img src="pair_bg3.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+  <div class="work-item reveal">
+    <div class="pair-outer"><img src="pair_bg4.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+
+  <!-- 보정 전후 -->
+  <div class="work-item reveal">
+    <p class="work-category">보정 전후</p>
+    <div class="pair-outer"><img src="pair_retouch2.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+  <div class="work-item reveal">
+    <div class="pair-outer"><img src="pair_retouch1.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+  <div class="work-item reveal">
+    <div class="pair-outer"><img src="pair_retouch3.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+  <div class="work-item reveal">
+    <div class="pair-outer"><img src="pair_retouch4.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+  <div class="work-item reveal">
+    <div class="pair-outer"><img src="pair_retouch5.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+
+  <!-- 작업물 모음 -->
+  <div class="work-item reveal">
+    <p class="work-category">작업물 모음</p>
+    <div class="pair-outer"><img src="works_all.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+  </div>
+
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="career-header reveal">
+    <span class="sec-label">Reviews</span>
+    <h2 class="sec-title">고객 후기 <span class="light">&amp; 평가</span></h2>
+  </div>
+  <div class="soomgo-badge reveal">
+    <span class="soomgo-star">⭐</span>
+    <span class="soomgo-score"><strong>5.0</strong> / 5.0</span>
+    <div class="soomgo-divider"></div>
+    <span class="soomgo-platform">숨고 · 30개 리뷰</span>
+  </div>
+  <div class="keyword-section reveal">
+    <p class="keyword-title">고객이 선택한 상위 키워드 · 30명 참여</p>
+    <div class="keyword-bars">
+      <div class="keyword-row"><span class="keyword-name">요청사항을 정확히 반영해요</span><div class="keyword-bar-wrap"><div class="keyword-bar" style="width:71%"></div></div><span class="keyword-count">20</span></div>
+      <div class="keyword-row"><span class="keyword-name">결과물 완성도가 높아요</span><div class="keyword-bar-wrap"><div class="keyword-bar" style="width:64%"></div></div><span class="keyword-count">18</span></div>
+      <div class="keyword-row"><span class="keyword-name">응답이 빨라요</span><div class="keyword-bar-wrap"><div class="keyword-bar" style="width:61%"></div></div><span class="keyword-count">17</span></div>
+    </div>
+  </div>
+  <div class="review-grid reveal">
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"정말 티안나게 예쁘게 성형해주세요~ 색감도 센스있으시고 요구사항도 맘에 들게 적용해주셔서 너무 만족스러워요."</p><div class="review-tags"><span class="review-tag">결과물 완성도가 높아요</span><span class="review-tag">요청사항을 정확히 반영해요</span></div><p class="review-meta">백** · 웨딩사진 보정 · 2025.10</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"결과물 다 너무너무 만족해요. 가격도 괜찮고 무조건 여기서 하세요, 후회 안해요 절대"</p><div class="review-tags"><span class="review-tag">결과물 완성도가 높아요</span><span class="review-tag">응대가 친절해요</span></div><p class="review-meta">바** · 인물 사진 보정 · 2025.11</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"웨딩사진 보정을 맡겼는데 정말 만족스러웠어요. 보정도 과하지 않게 자연스럽게 해주셔서 더 예쁘게 완성된 느낌이었어요."</p><div class="review-tags"><span class="review-tag">가격 대비 만족스러워요</span><span class="review-tag">작업 속도가 빨라요</span></div><p class="review-meta">익명 · 웨딩사진 보정 · 2026.01</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"자연스러운 보정을 원했는데 과하지 않고 미운 부분만 정리해주셨어요. 보정 전에 못 쓸 것 같은 사진도 예뻐져서 청첩장에 넣었어요."</p><div class="review-tags"><span class="review-tag">요청사항을 정확히 반영해요</span><span class="review-tag">응대가 친절해요</span></div><p class="review-meta">장** · 웨딩사진 보정 · 2026.05</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"정교하게 너무 잘해주셔서 정말정말 만족스러워요!! 만족 10000000000%입니다."</p><div class="review-tags"><span class="review-tag">가격 대비 만족스러워요</span><span class="review-tag">결과물 완성도가 높아요</span></div><p class="review-meta">이** · 인물사진 보정 · 2025.10</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"빠르고 친절한 응대 감사합니다! 작업시간도 빨라서 매우 만족스러워요."</p><div class="review-tags"><span class="review-tag">응답이 빨라요</span><span class="review-tag">작업 속도가 빨라요</span></div><p class="review-meta">조** · 웨딩사진 보정 · 2026.02</p></div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="career" id="career">
+  <div class="career-header reveal">
+    <span class="sec-label">Career &amp; Certification</span>
+    <h2 class="sec-title">경력 <span class="light">&amp; 자격증</span></h2>
+  </div>
+  <div class="timeline reveal">
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-card"><p class="tl-num">Experience 01</p><div class="tl-top"><p class="tl-place">펄나인사진관</p><span class="tl-loc">서울 용산구</span></div><p class="tl-desc">촬영 및 보정, 전체적인 매장 운영을 담당하였습니다.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-card"><p class="tl-num">Experience 02</p><div class="tl-top"><p class="tl-place">레코디드</p><span class="tl-loc">서울 강남 · 셀프사진관</span></div><p class="tl-desc">1:1 프리미엄 보정 서비스를 제공하였습니다.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-card"><p class="tl-num">Experience 03</p><div class="tl-top"><p class="tl-place">해온사진관</p><span class="tl-loc">경기도 이천시</span></div><p class="tl-desc">촬영 및 보정을 전반적으로 담당하였습니다.</p></div></div>
+    <div class="tl-item tl-active"><div class="tl-dot"></div><div class="tl-card"><p class="tl-num">Currently</p><div class="tl-top"><p class="tl-place">숨고</p><span class="tl-loc">프리랜서 보정작가 · 현재 진행중</span></div><p class="tl-desc">고객 응대 및 사진 보정 서비스를 제공하고 있습니다.</p></div></div>
+  </div>
+  <div class="certs reveal">
+    <span class="cert-pill-label">자격증</span>
+    <span class="cert-pill">🎨 포토샵 자격증</span>
+    <span class="cert-pill">✂️ 헤어 자격증</span>
+    <span class="cert-pill">💄 메이크업 자격증</span>
+    <span class="cert-pill-divider"></span>
+    <span class="cert-pill-label">Tools</span>
+    <span class="cert-pill">🖥 Photoshop</span>
+    <span class="cert-pill">📸 Lightroom</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="contact-title reveal">작업 문의는<br><strong>언제든 환영합니다</strong></h2>
+  <p class="contact-sub reveal">웨딩 · 프로필 · 일상 사진까지, 편하게 연락 주세요.</p>
+  <div class="contact-btns reveal">
+    <a href="mailto:jjaeuningg@naver.com" class="contact-btn">jjaeuningg@naver.com</a>
+    <a href="tel:01038192547" class="contact-btn-outline">📞 010-3819-2547</a>
+    <a href="https://www.soomgo.com/profile/users/10333776" target="_blank" class="contact-btn-outline">숨고 프로필 보기</a>
+  </div>
+  <p class="soomgo-hint reveal">버튼을 누르면 숨고 프로필로 연결되어 후기를 직접 확인하실 수 있어요 :)</p>
+</section>
+
+<footer>
+  <span>© 2026 모자은</span>
+  <span>Photo Retouching</span>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+
+
+</script>
+</body>
+</html>
