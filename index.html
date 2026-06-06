@@ -329,6 +329,24 @@
     50%  { box-shadow: 0 0 0 7px rgba(26,26,26,0); background: #555; }
     100% { box-shadow: 0 0 0 0px rgba(26,26,26,0); background: #1a1a1a; }
   }
+  .pair-img-wrap {
+    position: relative; display: inline-block; width: 100%;
+  }
+  .pair-img-wrap img {
+    width: 100%; border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06); display: block;
+  }
+  .pair-badge-row {
+    display: flex; justify-content: space-between;
+    padding: 10px 4px 0;
+  }
+  .pair-badge {
+    width: 54px; height: 54px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: #777; background: #f2f2f2; border: 1px solid #e8e8e8;
+  }
   .soomgo-hint {
     margin-top: 16px; font-size: 13px; font-weight: 300;
     color: #bbb; text-align: center;
@@ -379,34 +397,88 @@
   <!-- 배경 확장 -->
   <div class="work-item reveal">
     <p class="work-category">배경 확장</p>
-    <div class="pair-outer"><img src="pair_bg1.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_bg1.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
   <div class="work-item reveal">
-    <div class="pair-outer"><img src="pair_bg2.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_bg2.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
   <div class="work-item reveal">
-    <div class="pair-outer"><img src="pair_bg3.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_bg3.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
   <div class="work-item reveal">
-    <div class="pair-outer"><img src="pair_bg4.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_bg4.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
 
   <!-- 보정 전후 -->
   <div class="work-item reveal">
     <p class="work-category">보정 전후</p>
-    <div class="pair-outer"><img src="pair_retouch2.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_retouch2.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
   <div class="work-item reveal">
-    <div class="pair-outer"><img src="pair_retouch1.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_retouch1.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
   <div class="work-item reveal">
-    <div class="pair-outer"><img src="pair_retouch3.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_retouch3.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
   <div class="work-item reveal">
-    <div class="pair-outer"><img src="pair_retouch4.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_retouch4.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
   <div class="work-item reveal">
-    <div class="pair-outer"><img src="pair_retouch5.jpg" alt="" style="width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);display:block;"></div>
+    <div class="pair-outer"><div class="pair-img-wrap">
+      <img src="pair_retouch5.jpg" alt="">
+    </div>
+    <div class="pair-badge-row">
+      <span class="pair-badge">Before</span>
+      <span class="pair-badge">After</span>
+    </div></div>
   </div>
 
   <!-- 작업물 모음 -->
