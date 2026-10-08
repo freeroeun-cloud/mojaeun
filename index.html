@@ -13,6 +13,10 @@
 @media(max-width:760px){.nav{padding:0 22px;gap:12px}.brand span{display:none}.nav nav{gap:16px;font-size:11px}.profile{padding:34px 22px}.intro{display:block;margin-bottom:28px}.intro-text{margin-top:16px;max-width:100%}.profile-grid{grid-template-columns:1fr;gap:24px}.experience li{grid-template-columns:145px 1fr;gap:14px}.certifications{border-top:1px solid var(--line);padding-top:20px}.cert-list{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:18px}.toc{gap:18px;flex-wrap:wrap}.toc-title{width:100%}.work-section{padding:48px 22px 8px}h2{font-size:26px}.section-heading{margin-bottom:26px}.section-number{display:none}.work{margin-bottom:32px}.work figcaption{font-size:12px;gap:10px}.compare-label{font-size:10px}.compare-label span{margin:0 3px}.image-button{border-radius:8px}.extra{padding:24px 22px}.review-grid{grid-template-columns:1fr;gap:12px}.contact{padding:26px 22px 38px}.contact-inner{display:block}.contact-links{text-align:left;margin-top:22px}footer{padding:18px 22px}.dialog-bar{font-size:11px}}
 @media(max-width:380px){.experience li{grid-template-columns:1fr;gap:2px}.nav nav{gap:10px}.toc{gap:14px}.compare-label{font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Native photographs only. Each pair shares one fixed comparison canvas. */
+.motion-gallery{display:grid;grid-template-columns:1fr;gap:0;align-items:start}#retouch .motion-gallery{max-width:720px;margin:auto}.expansion{grid-column:1/-1}.motion-work{min-width:0}.motion-stage{position:relative;aspect-ratio:2/3;overflow:hidden;background:#e9e9ed;border-radius:12px;isolation:isolate}.motion-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}.motion-after{clip-path:inset(0 100% 0 0)}.wipe-line{position:absolute;top:0;bottom:0;left:0;width:2px;background:rgba(255,255,255,.85);pointer-events:none;box-shadow:0 0 5px #0003}.expand-view{position:absolute;right:12px;bottom:12px;border:1px solid #fff5;border-radius:18px;background:rgba(30,30,35,.65);color:white;padding:6px 12px;font-size:11px;backdrop-filter:blur(12px)}.expansion .motion-before{left:var(--original-left);width:var(--original-width);right:auto;z-index:2}.expansion .motion-after{clip-path:inset(0 28% 0 28%)}.expansion .wipe-line{display:none}.expansion .expand-view{z-index:3}.motion-controls{display:flex;gap:20px;align-items:center;margin-top:12px}.play-toggle{padding:6px 12px;min-width:88px;border:1px solid var(--line);border-radius:18px;background:transparent;color:var(--ink);font-size:11px}.scrubber{display:flex;flex:1;gap:12px;align-items:center;font-size:11px;color:var(--muted)}.scrubber input{min-width:0;width:100%;accent-color:var(--ink);cursor:ew-resize}.motion-state{font-weight:400;color:var(--muted);font-size:11px}#motion-modal{padding:20px;overflow:auto}#motion-modal .work{margin:0 auto;max-width:680px}#motion-modal .expansion{max-width:1200px}#motion-modal .retouch .motion-stage{max-height:72dvh;width:auto;max-width:100%;margin:auto}#motion-modal .expand-view{display:none}dialog{width:1240px}.modal-open .motion-work:not(dialog .motion-work) .play-toggle{pointer-events:none}
+@media(max-width:760px){.motion-gallery{grid-template-columns:1fr;gap:0}.motion-stage{border-radius:8px}.motion-work{max-width:560px;width:100%;margin-left:auto;margin-right:auto}.expansion{max-width:none}.motion-controls{gap:12px}#motion-modal{padding:12px}}
 </style>
 </head>
 <body>
@@ -30,20 +34,88 @@
 </ul></div><aside class="certifications" aria-label="자격증 및 사용 도구"><h2 class="small-title">자격증</h2><ul class="cert-list"><li>GTQ 포토샵</li><li>헤어 자격증</li><li>메이크업 자격증</li></ul><h2 class="small-title">사용 도구</h2><p class="tools">Photoshop · Lightroom</p></aside></div>
 <nav class="toc" aria-label="작업 목차"><span class="toc-title">CONTENTS</span><a href="#retouch"><span class="number">01</span> 사진 보정 전후 <span class="arrow">↓</span></a><a href="#background"><span class="number">02</span> 배경 확장 전후 <span class="arrow">↓</span></a></nav>
 </div></section>
-<section class="work-section" id="retouch" aria-labelledby="retouch-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">01 / RETOUCHING</p><h2 id="retouch-title">사진 보정 전후</h2><p>사진을 누르면 크게 볼 수 있습니다.</p></div><span class="section-number">5 WORKS</span></div>
-<figure class="work"><figcaption><span>사진 보정 01</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_retouch2.jpg" aria-label="사진 보정 1 전후 크게 보기"><img src="pair_retouch2.jpg" alt="사진 보정 작업 1, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-<figure class="work"><figcaption><span>사진 보정 02</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_retouch1.jpg" aria-label="사진 보정 2 전후 크게 보기"><img src="pair_retouch1.jpg" alt="사진 보정 작업 2, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-<figure class="work"><figcaption><span>사진 보정 03</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_retouch3.jpg" aria-label="사진 보정 3 전후 크게 보기"><img src="pair_retouch3.jpg" alt="사진 보정 작업 3, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-<figure class="work"><figcaption><span>사진 보정 04</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_retouch4.jpg" aria-label="사진 보정 4 전후 크게 보기"><img src="pair_retouch4.jpg" alt="사진 보정 작업 4, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-<figure class="work"><figcaption><span>사진 보정 05</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_retouch5.jpg" aria-label="사진 보정 5 전후 크게 보기"><img src="pair_retouch5.jpg" alt="사진 보정 작업 5, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-</div></section>
-<section class="work-section background-section" id="background" aria-labelledby="background-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">02 / BACKGROUND EXTENSION</p><h2 id="background-title">배경 확장 전후</h2><p>사진을 누르면 크게 볼 수 있습니다.</p></div><span class="section-number">4 WORKS</span></div>
-<figure class="work"><figcaption><span>배경 확장 01</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_bg1.jpg" aria-label="배경 확장 1 전후 크게 보기"><img src="pair_bg1.jpg" alt="배경 확장 작업 1, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-<figure class="work"><figcaption><span>배경 확장 02</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_bg2.jpg" aria-label="배경 확장 2 전후 크게 보기"><img src="pair_bg2.jpg" alt="배경 확장 작업 2, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-<figure class="work"><figcaption><span>배경 확장 03</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_bg3.jpg" aria-label="배경 확장 3 전후 크게 보기"><img src="pair_bg3.jpg" alt="배경 확장 작업 3, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-<figure class="work"><figcaption><span>배경 확장 04</span><span class="compare-label">왼쪽 보정 전 <span aria-hidden="true">·</span> 오른쪽 보정 후</span></figcaption><button class="image-button" type="button" data-image="pair_bg4.jpg" aria-label="배경 확장 4 전후 크게 보기"><img src="pair_bg4.jpg" alt="배경 확장 작업 4, 왼쪽 보정 전과 오른쪽 보정 후 비교" loading="lazy" decoding="async"></button></figure>
-</div></section>
-<section class="extra" aria-label="고객 후기"><div class="container"><details class="reviews-details"><summary>고객 후기</summary><div class="review-grid">
+<section class="work-section " id="retouch" aria-labelledby="retouch-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">01 / RETOUCHING</p><h2 id="retouch-title">사진 보정 전후</h2><p>같은 크기의 화면에서 보정 전후를 비교해 보세요.</p></div><span class="section-number">자동 비교 · 직접 조절 가능</span></div><div class="motion-gallery"><figure class="work motion-work retouch" data-kind="retouch">
+ <figcaption><span>사진 보정 01</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage">
+ <img class="motion-before" src="retouch_before2.jpg" alt="사진 보정 1 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after2.jpg" alt="사진 보정 1 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="사진 보정 1 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="사진 보정 1 전후 비교"><span>후</span></label></div>
+ </figure><figure class="work motion-work retouch" data-kind="retouch">
+ <figcaption><span>사진 보정 02</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage">
+ <img class="motion-before" src="retouch_before1.jpg" alt="사진 보정 2 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after1.jpg" alt="사진 보정 2 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="사진 보정 2 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="사진 보정 2 전후 비교"><span>후</span></label></div>
+ </figure><figure class="work motion-work retouch" data-kind="retouch">
+ <figcaption><span>사진 보정 03</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage">
+ <img class="motion-before" src="retouch_before3.jpg" alt="사진 보정 3 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after3.jpg" alt="사진 보정 3 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="사진 보정 3 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="사진 보정 3 전후 비교"><span>후</span></label></div>
+ </figure><figure class="work motion-work retouch" data-kind="retouch">
+ <figcaption><span>사진 보정 04</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage">
+ <img class="motion-before" src="retouch_before4.jpg" alt="사진 보정 4 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after4.jpg" alt="사진 보정 4 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="사진 보정 4 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="사진 보정 4 전후 비교"><span>후</span></label></div>
+ </figure><figure class="work motion-work retouch" data-kind="retouch">
+ <figcaption><span>사진 보정 05</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage">
+ <img class="motion-before" src="retouch_before5.jpg" alt="사진 보정 5 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after5.jpg" alt="사진 보정 5 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="사진 보정 5 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="사진 보정 5 전후 비교"><span>후</span></label></div>
+ </figure></div></div></section><section class="work-section background-section" id="background" aria-labelledby="background-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">02 / BACKGROUND EXTENSION</p><h2 id="background-title">배경 확장 전후</h2><p>인물 크기는 그대로, 배경이 양옆으로 펼쳐집니다.</p></div><span class="section-number">자동 비교 · 직접 조절 가능</span></div><div class="motion-gallery"><figure class="work motion-work expansion" data-kind="bg" data-left="28.943739" data-right="26.609166">
+ <figcaption><span>배경 확장 01</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage" style="aspect-ratio:8383/5589;--original-left:28.943739%;--original-width:44.447095%">
+ <img class="motion-before" src="bg_before1.jpg" alt="배경 확장 1 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="bg_after1.jpg" alt="배경 확장 1 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="배경 확장 1 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="배경 확장 1 전후 비교"><span>후</span></label></div>
+ </figure><figure class="work motion-work expansion" data-kind="bg" data-left="27.787604" data-right="27.770957">
+ <figcaption><span>배경 확장 02</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage" style="aspect-ratio:7394/4929;--original-left:27.787604%;--original-width:44.441439%">
+ <img class="motion-before" src="bg_before2.jpg" alt="배경 확장 2 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="bg_after2.jpg" alt="배경 확장 2 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="배경 확장 2 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="배경 확장 2 전후 비교"><span>후</span></label></div>
+ </figure><figure class="work motion-work expansion" data-kind="bg" data-left="27.766438" data-right="27.778630">
+ <figcaption><span>배경 확장 03</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage" style="aspect-ratio:6357/4238;--original-left:27.766438%;--original-width:44.454932%">
+ <img class="motion-before" src="bg_before3.jpg" alt="배경 확장 3 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="bg_after3.jpg" alt="배경 확장 3 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="배경 확장 3 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="배경 확장 3 전후 비교"><span>후</span></label></div>
+ </figure><figure class="work motion-work expansion" data-kind="bg" data-left="27.760614" data-right="27.802887">
+ <figcaption><span>배경 확장 04</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
+ <div class="motion-stage" style="aspect-ratio:6992/4661;--original-left:27.760614%;--original-width:44.436499%">
+ <img class="motion-before" src="bg_before4.jpg" alt="배경 확장 4 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="bg_after4.jpg" alt="배경 확장 4 보정 후" loading="lazy" decoding="async">
+ <span class="wipe-line" aria-hidden="true"></span>
+ <button type="button" class="expand-view" aria-label="배경 확장 4 크게 보기">확대 ↗</button>
+ </div>
+ <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="배경 확장 4 전후 비교"><span>후</span></label></div>
+ </figure></div></div></section><section class="extra" aria-label="고객 후기"><div class="container"><details class="reviews-details"><summary>고객 후기</summary><div class="review-grid">
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"정말 티안나게 예쁘게 성형해주세요~ 색감도 센스있으시고 요구사항도 맘에 들게 적용해주셔서 너무 만족스러워요."</p><div class="review-tags"><span class="review-tag">결과물 완성도가 높아요</span><span class="review-tag">요청사항을 정확히 반영해요</span></div><p class="review-meta">백** · 웨딩사진 보정 · 2025.10</p></div>
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"결과물 다 너무너무 만족해요. 가격도 괜찮고 무조건 여기서 하세요, 후회 안해요 절대"</p><div class="review-tags"><span class="review-tag">결과물 완성도가 높아요</span><span class="review-tag">응대가 친절해요</span></div><p class="review-meta">바** · 인물 사진 보정 · 2025.11</p></div>
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"웨딩사진 보정을 맡겼는데 정말 만족스러웠어요. 보정도 과하지 않게 자연스럽게 해주셔서 더 예쁘게 완성된 느낌이었어요."</p><div class="review-tags"><span class="review-tag">가격 대비 만족스러워요</span><span class="review-tag">작업 속도가 빨라요</span></div><p class="review-meta">익명 · 웨딩사진 보정 · 2026.01</p></div>
@@ -53,22 +125,57 @@
 <section class="contact" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><div><h2 id="contact-title">작업 문의</h2><p>사진 보정 및 납품 문의는 아래 연락처로 보내주세요.</p></div><div class="contact-links"><a class="email" href="mailto:jjaeuningg@naver.com">jjaeuningg@naver.com ↗</a><a href="tel:01038192547">010-3819-2547</a></div></div></section>
 </main>
 <footer><div class="container"><span>© 2026 모자은</span><span>Photo Retouching Portfolio</span></div></footer>
-<dialog aria-label="보정 전후 사진 크게 보기"><div class="dialog-bar"><span id="image-title">보정 전후</span><button class="close" type="button">닫기 ×</button></div><img alt="" id="large-image"></dialog>
+<dialog aria-label="전후 사진 크게 비교하기"><div class="dialog-bar"><span>사진 전후 비교</span><button class="close" type="button">닫기 ×</button></div><div id="motion-modal"></div></dialog>
 <script>
 const dialog=document.querySelector('dialog');
-const largeImage=document.querySelector('#large-image');
-let opener;
-document.querySelectorAll('.image-button').forEach(button=>button.addEventListener('click',()=>{
- opener=button;
- largeImage.src=button.dataset.image;
- largeImage.alt=button.querySelector('img').alt;
- document.querySelector('#image-title').textContent=button.closest('figure').querySelector('figcaption').textContent;
- dialog.showModal();
- document.body.classList.add('modal-open');
-}));
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const models=[];let opener=null;let modalModel=null;
+function paint(m,p){
+ m.value=p;const f=m.figure;const after=f.querySelector('.motion-after');
+ if(f.dataset.kind==='bg'){
+  const l=Number(f.dataset.left)*(1-p),r=Number(f.dataset.right)*(1-p);
+  after.style.clipPath=`inset(0 ${r}% 0 ${l}%)`;
+  f.querySelector('.motion-before').style.opacity=String(1-Math.min(1,p*6));
+ }else{
+  after.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`;
+  f.querySelector('.wipe-line').style.left=`${p*100}%`;
+ }
+ f.querySelector('input').value=p*100;
+ f.querySelector('.motion-state').textContent=p<.01?'보정 전':p>.99?'보정 후':'전후 비교';
+}
+function syncButton(m){const b=m.figure.querySelector('.play-toggle');b.textContent=m.playing?'일시정지':'자동 재생';b.setAttribute('aria-label',m.playing?'자동 비교 일시정지':'자동 비교 재생');}
+function setup(figure,modal=false){
+ const m={figure,playing:!reduceMotion,visible:modal,ready:false,elapsed:0,value:0,modal};models.push(m);
+ paint(m,0);syncButton(m);
+ Promise.all([...figure.querySelectorAll('img')].map(img=>img.decode().catch(()=>{}))).then(()=>{m.ready=[...figure.querySelectorAll('img')].every(img=>img.naturalWidth>0);});
+ figure.querySelector('.play-toggle').addEventListener('click',()=>{m.playing=!m.playing;if(m.playing)m.elapsed=m.value*1000+1300;syncButton(m);});
+ figure.querySelector('input').addEventListener('input',e=>{m.playing=false;syncButton(m);paint(m,Number(e.target.value)/100);});
+ if(!modal){observer.observe(figure);figure.querySelector('.expand-view').addEventListener('click',()=>openComparison(m));}
+ return m;
+}
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const m=models.find(x=>x.figure===e.target);if(m)m.visible=e.isIntersecting;}),{threshold:.15});
+document.querySelectorAll('.motion-work').forEach(f=>setup(f));
+function openComparison(source){
+ opener=source.figure.querySelector('.expand-view');const clone=source.figure.cloneNode(true);
+ document.querySelector('#motion-modal').replaceChildren(clone);dialog.showModal();document.body.classList.add('modal-open');
+ modalModel=setup(clone,true);modalModel.elapsed=source.elapsed;modalModel.playing=source.playing;paint(modalModel,source.value);syncButton(modalModel);
+}
 document.querySelector('.close').addEventListener('click',()=>dialog.close());
-dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
-dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');if(opener)opener.focus({preventScroll:true});});
+dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');if(modalModel){models.splice(models.indexOf(modalModel),1);modalModel=null;}document.querySelector('#motion-modal').replaceChildren();opener?.focus({preventScroll:true});});
+const ease=t=>t*t*(3-2*t);
+let previous=0;
+function frame(now){
+ const dt=previous?Math.min(now-previous,80):0;previous=now;
+ if(!document.hidden)for(const m of models){
+  if(!m.playing||!m.visible||!m.ready||(dialog.open&&!m.modal))continue;
+  m.elapsed=(m.elapsed+dt)%5800;const t=m.elapsed;
+  const p=t<1300?0:t<2400?ease((t-1300)/1100):t<4500?1:t<5600?1-ease((t-4500)/1100):0;
+  paint(m,p);
+ }
+ requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
 </script>
 </body>
 </html>
