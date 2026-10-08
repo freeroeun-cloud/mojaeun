@@ -17,6 +17,8 @@
 /* Native photographs only. Each pair shares one fixed comparison canvas. */
 .motion-gallery{display:grid;grid-template-columns:1fr;gap:0;align-items:start}#retouch .motion-gallery{max-width:720px;margin:auto}.expansion{grid-column:1/-1}.motion-work{min-width:0}.motion-stage{position:relative;aspect-ratio:2/3;overflow:hidden;background:#e9e9ed;border-radius:12px;isolation:isolate}.motion-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}.motion-after{clip-path:inset(0 100% 0 0)}.wipe-line{position:absolute;top:0;bottom:0;left:0;width:2px;background:rgba(255,255,255,.85);pointer-events:none;box-shadow:0 0 5px #0003}.expand-view{position:absolute;right:12px;bottom:12px;border:1px solid #fff5;border-radius:18px;background:rgba(30,30,35,.65);color:white;padding:6px 12px;font-size:11px;backdrop-filter:blur(12px)}.expansion .motion-before{left:var(--original-left);width:var(--original-width);right:auto;z-index:2}.expansion .motion-after{clip-path:inset(0 28% 0 28%)}.expansion .wipe-line{display:none}.expansion .expand-view{z-index:3}.motion-controls{display:flex;gap:20px;align-items:center;margin-top:12px}.play-toggle{padding:6px 12px;min-width:88px;border:1px solid var(--line);border-radius:18px;background:transparent;color:var(--ink);font-size:11px}.scrubber{display:flex;flex:1;gap:12px;align-items:center;font-size:11px;color:var(--muted)}.scrubber input{min-width:0;width:100%;accent-color:var(--ink);cursor:ew-resize}.motion-state{font-weight:400;color:var(--muted);font-size:11px}#motion-modal{padding:20px;overflow:auto}#motion-modal .work{margin:0 auto;max-width:680px}#motion-modal .expansion{max-width:1200px}#motion-modal .retouch .motion-stage{max-height:72dvh;width:auto;max-width:100%;margin:auto}#motion-modal .expand-view{display:none}dialog{width:1240px}.modal-open .motion-work:not(dialog .motion-work) .play-toggle{pointer-events:none}
 @media(max-width:760px){.motion-gallery{grid-template-columns:1fr;gap:0}.motion-stage{border-radius:8px}.motion-work{max-width:560px;width:100%;margin-left:auto;margin-right:auto}.expansion{max-width:none}.motion-controls{gap:12px}#motion-modal{padding:12px}}
+
+.profile-contact{display:flex;flex-wrap:wrap;gap:12px 26px;margin:-12px 0 28px;font-size:13px;color:#45454a}.profile-contact a{display:inline-flex;gap:7px;align-items:center}.profile-contact a:hover{color:var(--blue)}.reviews-visible{padding:20px 0}.reviews-title{font-size:26px;margin-bottom:20px}.rating-badge{display:inline-flex;align-items:center;flex-wrap:wrap;gap:12px;padding:11px 18px;background:var(--soft);border-radius:24px;font-size:14px;color:var(--muted)}.rating-star{color:#e5a328;font-size:21px}.rating-badge strong{font-size:20px;color:var(--ink);font-weight:600}.rating-source{padding-left:12px;border-left:1px solid var(--line);font-size:12px}.review-stars{color:#dda027}.review-card{background:var(--soft);border-radius:14px;padding:22px}.review-grid{gap:16px}.review-text{margin:12px 0 16px}.review-meta{margin:0}@media(max-width:760px){.profile-contact{margin-top:-8px;gap:10px 20px}.reviews-title{font-size:24px}}
 </style>
 </head>
 <body>
@@ -25,6 +27,7 @@
 <main>
 <section class="profile" id="profile" aria-labelledby="profile-title"><div class="container">
 <div class="intro"><div><p class="eyebrow">PHOTO RETOUCHING</p><h1 id="profile-title">모자은 · 사진 보정</h1></div><p class="intro-text">사진관 실무 경험을 바탕으로,<br>사진의 분위기에 맞춰 자연스럽게 보정합니다.</p></div>
+<div class="profile-contact" aria-label="연락처"><a href="tel:01038192547"><span aria-hidden="true">📞</span> 010-3819-2547</a><a href="mailto:jjaeuningg@naver.com"><span aria-hidden="true">✉️</span> jjaeuningg@naver.com</a></div>
 <div class="profile-grid"><div><h2 class="small-title">경력</h2><ul class="experience">
 <li><strong>사진관 재택 보정<span class="current">현재</span></strong><p>사진관 촬영본을 재택으로 보정하며 현재도 납품하고 있습니다.</p></li>
 <li><strong>숨고 프리랜서<span class="current">현재</span></strong><p>웨딩 · 인물사진 보정</p></li>
@@ -37,8 +40,8 @@
 <section class="work-section " id="retouch" aria-labelledby="retouch-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">01 / RETOUCHING</p><h2 id="retouch-title">사진 보정 전후</h2><p>같은 크기의 화면에서 보정 전후를 비교해 보세요.</p></div><span class="section-number">자동 비교 · 직접 조절 가능</span></div><div class="motion-gallery"><figure class="work motion-work retouch" data-kind="retouch">
  <figcaption><span>사진 보정 01</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
  <div class="motion-stage">
- <img class="motion-before" src="retouch_before2.jpg" alt="사진 보정 1 보정 전" loading="lazy" decoding="async">
- <img class="motion-after" src="retouch_after2.jpg" alt="사진 보정 1 보정 후" loading="eager" decoding="async">
+ <img class="motion-before" src="retouch_before5.jpg" alt="사진 보정 1 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after5.jpg" alt="사진 보정 1 보정 후" loading="eager" decoding="async">
  <span class="wipe-line" aria-hidden="true"></span>
  <button type="button" class="expand-view" aria-label="사진 보정 1 크게 보기">확대 ↗</button>
  </div>
@@ -46,8 +49,8 @@
  </figure><figure class="work motion-work retouch" data-kind="retouch">
  <figcaption><span>사진 보정 02</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
  <div class="motion-stage">
- <img class="motion-before" src="retouch_before3.jpg" alt="사진 보정 2 보정 전" loading="lazy" decoding="async">
- <img class="motion-after" src="retouch_after3.jpg" alt="사진 보정 2 보정 후" loading="eager" decoding="async">
+ <img class="motion-before" src="retouch_before4.jpg" alt="사진 보정 2 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after4.jpg" alt="사진 보정 2 보정 후" loading="eager" decoding="async">
  <span class="wipe-line" aria-hidden="true"></span>
  <button type="button" class="expand-view" aria-label="사진 보정 2 크게 보기">확대 ↗</button>
  </div>
@@ -55,8 +58,8 @@
  </figure><figure class="work motion-work retouch" data-kind="retouch">
  <figcaption><span>사진 보정 03</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
  <div class="motion-stage">
- <img class="motion-before" src="retouch_before4.jpg" alt="사진 보정 3 보정 전" loading="lazy" decoding="async">
- <img class="motion-after" src="retouch_after4.jpg" alt="사진 보정 3 보정 후" loading="eager" decoding="async">
+ <img class="motion-before" src="retouch_before3.jpg" alt="사진 보정 3 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after3.jpg" alt="사진 보정 3 보정 후" loading="eager" decoding="async">
  <span class="wipe-line" aria-hidden="true"></span>
  <button type="button" class="expand-view" aria-label="사진 보정 3 크게 보기">확대 ↗</button>
  </div>
@@ -64,8 +67,8 @@
  </figure><figure class="work motion-work retouch" data-kind="retouch">
  <figcaption><span>사진 보정 04</span><span class="motion-state" aria-hidden="true">보정 전</span></figcaption>
  <div class="motion-stage">
- <img class="motion-before" src="retouch_before5.jpg" alt="사진 보정 4 보정 전" loading="lazy" decoding="async">
- <img class="motion-after" src="retouch_after5.jpg" alt="사진 보정 4 보정 후" loading="eager" decoding="async">
+ <img class="motion-before" src="retouch_before2.jpg" alt="사진 보정 4 보정 전" loading="lazy" decoding="async">
+ <img class="motion-after" src="retouch_after2.jpg" alt="사진 보정 4 보정 후" loading="eager" decoding="async">
  <span class="wipe-line" aria-hidden="true"></span>
  <button type="button" class="expand-view" aria-label="사진 보정 4 크게 보기">확대 ↗</button>
  </div>
@@ -106,13 +109,13 @@
  <button type="button" class="expand-view" aria-label="배경 확장 4 크게 보기">확대 ↗</button>
  </div>
  <div class="motion-controls"><button type="button" class="play-toggle" aria-label="자동 비교 일시정지">일시정지</button><label class="scrubber"><span>전</span><input type="range" min="0" max="100" value="0" step="0.1" aria-label="배경 확장 4 전후 비교"><span>후</span></label></div>
- </figure></div></div></section><section class="extra" aria-label="고객 후기"><div class="container"><details class="reviews-details"><summary>고객 후기</summary><div class="review-grid">
+ </figure></div></div></section><section class="extra" aria-label="고객 후기"><div class="container"><div class="reviews-visible"><h2 class="reviews-title">고객 후기</h2><div class="rating-badge"><span class="rating-star" aria-hidden="true">★</span><span><strong>5.0</strong> / 5.0</span><span class="rating-source">숨고 · 30개 리뷰</span></div><div class="review-grid">
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"정말 티안나게 예쁘게 성형해주세요~ 색감도 센스있으시고 요구사항도 맘에 들게 적용해주셔서 너무 만족스러워요."</p><div class="review-tags"><span class="review-tag">결과물 완성도가 높아요</span><span class="review-tag">요청사항을 정확히 반영해요</span></div><p class="review-meta">백** · 웨딩사진 보정 · 2025.10</p></div>
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"결과물 다 너무너무 만족해요. 가격도 괜찮고 무조건 여기서 하세요, 후회 안해요 절대"</p><div class="review-tags"><span class="review-tag">결과물 완성도가 높아요</span><span class="review-tag">응대가 친절해요</span></div><p class="review-meta">바** · 인물 사진 보정 · 2025.11</p></div>
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"웨딩사진 보정을 맡겼는데 정말 만족스러웠어요. 보정도 과하지 않게 자연스럽게 해주셔서 더 예쁘게 완성된 느낌이었어요."</p><div class="review-tags"><span class="review-tag">가격 대비 만족스러워요</span><span class="review-tag">작업 속도가 빨라요</span></div><p class="review-meta">익명 · 웨딩사진 보정 · 2026.01</p></div>
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"자연스러운 보정을 원했는데 과하지 않고 미운 부분만 정리해주셨어요. 보정 전에 못 쓸 것 같은 사진도 예뻐져서 청첩장에 넣었어요."</p><div class="review-tags"><span class="review-tag">요청사항을 정확히 반영해요</span><span class="review-tag">응대가 친절해요</span></div><p class="review-meta">장** · 웨딩사진 보정 · 2026.05</p></div>
     <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"정교하게 너무 잘해주셔서 정말정말 만족스러워요!! 만족 10000000000%입니다."</p><div class="review-tags"><span class="review-tag">가격 대비 만족스러워요</span><span class="review-tag">결과물 완성도가 높아요</span></div><p class="review-meta">이** · 인물사진 보정 · 2025.10</p></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"빠르고 친절한 응대 감사합니다! 작업시간도 빨라서 매우 만족스러워요."</p><div class="review-tags"><span class="review-tag">응답이 빨라요</span><span class="review-tag">작업 속도가 빨라요</span></div><p class="review-meta">조** · 웨딩사진 보정 · 2026.02</p></div></div><a class="review-link" href="https://www.soomgo.com/profile/users/10333776" target="_blank" rel="noopener noreferrer">숨고에서 후기 보기 ↗</a></details></div></section>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"빠르고 친절한 응대 감사합니다! 작업시간도 빨라서 매우 만족스러워요."</p><div class="review-tags"><span class="review-tag">응답이 빨라요</span><span class="review-tag">작업 속도가 빨라요</span></div><p class="review-meta">조** · 웨딩사진 보정 · 2026.02</p></div></div><a class="review-link" href="https://www.soomgo.com/profile/users/10333776" target="_blank" rel="noopener noreferrer">숨고에서 후기 보기 ↗</a></div></div></section>
 <section class="contact" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><div><h2 id="contact-title">작업 문의</h2><p>사진 보정 및 납품 문의는 아래 연락처로 보내주세요.</p></div><div class="contact-links"><a class="email" href="mailto:jjaeuningg@naver.com"><span aria-hidden="true">✉️</span> jjaeuningg@naver.com ↗</a><a href="tel:01038192547"><span aria-hidden="true">📞</span> 010-3819-2547</a></div></div></section>
 </main>
 <footer><div class="container"><span>© 2026 모자은</span><span>Photo Retouching Portfolio</span></div></footer>
