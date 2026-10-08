@@ -21,6 +21,34 @@
 .profile-contact{display:flex;flex-wrap:wrap;gap:12px 26px;margin:-12px 0 28px;font-size:13px;color:#45454a}.profile-contact a{display:inline-flex;gap:7px;align-items:center}.profile-contact a:hover{color:var(--blue)}.reviews-visible{padding:20px 0}.reviews-title{font-size:26px;margin-bottom:20px}.rating-badge{display:inline-flex;align-items:center;flex-wrap:wrap;gap:12px;padding:11px 18px;background:var(--soft);border-radius:24px;font-size:14px;color:var(--muted)}.rating-star{color:#e5a328;font-size:21px}.rating-badge strong{font-size:20px;color:var(--ink);font-weight:600}.rating-source{padding-left:12px;border-left:1px solid var(--line);font-size:12px}.review-stars{color:#dda027}.review-card{background:var(--soft);border-radius:14px;padding:22px}.review-grid{gap:16px}.review-text{margin:12px 0 16px}.review-meta{margin:0}@media(max-width:760px){.profile-contact{margin-top:-8px;gap:10px 20px}.reviews-title{font-size:24px}}
 
 .profile{padding-top:28px}.portfolio-hero{position:relative;isolation:isolate;overflow:hidden;min-height:460px;display:flex;align-items:center;justify-content:center;padding:56px 32px;margin-bottom:32px;border-radius:18px;background:#fff}.portfolio-hero .hero-collage{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center 58%;opacity:.6;pointer-events:none}.hero-copy{text-align:center;color:#161618;text-shadow:0 1px 14px rgba(255,255,255,.95)}.portfolio-hero h1{font-size:clamp(32px,4.5vw,58px);font-weight:700;line-height:1.3;word-break:keep-all}.portfolio-hero .eyebrow{color:#333338;letter-spacing:.18em;margin-bottom:16px}.portfolio-hero .intro-text{color:#303036;margin:20px auto 0;font-size:15px;line-height:1.8;max-width:420px}.profile-contact{margin-top:0}@media(max-width:760px){.profile{padding-top:20px}.portfolio-hero{min-height:370px;padding:40px 18px;margin-bottom:24px;border-radius:12px}.portfolio-hero .hero-collage{object-position:50% 55%}.portfolio-hero .intro-text{font-size:13px}.portfolio-hero .eyebrow{font-size:10px;letter-spacing:.12em}.portfolio-hero h1{font-size:clamp(28px,7vw,40px)}}
+
+/* Refined typography and compact, viewport-aware comparison galleries. */
+.portfolio-hero{background:#202228}
+.portfolio-hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.16);z-index:0;pointer-events:none}
+.hero-copy{position:relative;z-index:1;color:#fff;text-shadow:none}
+.portfolio-hero h1{font-family:"AppleMyungjo","Batang","Noto Serif KR",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.045em;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.16);padding:0 8px}
+.portfolio-hero .eyebrow{color:rgba(255,255,255,.85);font-weight:400;letter-spacing:.2em}
+.portfolio-hero .intro-text{color:rgba(255,255,255,.9);font-weight:400;font-size:14px}
+.profile-grid .small-title{font-size:20px;font-weight:700;line-height:1.4;margin-bottom:20px;color:#202124}
+.experience strong{font-size:14px;font-weight:600;color:#303136}
+.experience p{font-size:12px;font-weight:400;line-height:1.8;color:#717178}
+.experience li{margin-bottom:19px}
+.cert-list,.tools{font-size:12px;color:#717178;line-height:1.8}
+.certifications .small-title:not(:first-child){font-size:15px;margin-bottom:10px}
+#retouch .motion-gallery{width:100%;max-width:min(400px,40svh);margin-inline:auto}
+#background .motion-gallery{width:100%;max-width:min(860px,90svh);margin-inline:auto}
+.motion-gallery .work{margin-bottom:30px}
+.work-section{padding-top:48px}
+.section-heading{margin-bottom:26px}
+@media(max-width:760px){
+ .profile-grid .small-title{font-size:18px;margin-bottom:16px}
+ .experience strong{font-size:13px}.experience p{font-size:12px}
+ #retouch .motion-gallery{max-width:min(100%,360px,40svh)}
+ #background .motion-gallery{max-width:100%}
+ .motion-gallery .work{margin-bottom:26px}
+ .work-section{padding-top:36px}
+ .portfolio-hero .intro-text{font-size:13px}
+}
 </style>
 </head>
 <body>
