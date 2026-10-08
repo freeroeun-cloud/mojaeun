@@ -145,15 +145,21 @@ function paint(m,p){
 }
 function syncButton(m){const b=m.figure.querySelector('.play-toggle');b.textContent=m.playing?'일시정지':'자동 재생';b.setAttribute('aria-label',m.playing?'자동 비교 일시정지':'자동 비교 재생');}
 function setup(figure,modal=false){
- const m={figure,playing:!reduceMotion,visible:modal,ready:false,elapsed:0,value:0,modal};models.push(m);
+ const m={figure,playing:!reduceMotion,visible:modal,ready:false,elapsed:1050,value:0,modal};models.push(m);
  paint(m,0);syncButton(m);
- Promise.all([...figure.querySelectorAll('img')].map(img=>img.decode().catch(()=>{}))).then(()=>{m.ready=[...figure.querySelectorAll('img')].every(img=>img.naturalWidth>0);});
+ const images=[...figure.querySelectorAll('img')];
+ const checkReady=()=>{
+  const loaded=images.every(img=>img.complete&&img.naturalWidth>0);
+  if(loaded&&!m.ready){m.ready=true;m.elapsed=1050;}
+ };
+ images.forEach(img=>img.addEventListener('load',checkReady));
+ checkReady();
  figure.querySelector('.play-toggle').addEventListener('click',()=>{m.playing=!m.playing;if(m.playing)m.elapsed=m.value*1000+1300;syncButton(m);});
  figure.querySelector('input').addEventListener('input',e=>{m.playing=false;syncButton(m);paint(m,Number(e.target.value)/100);});
  if(!modal){observer.observe(figure);figure.querySelector('.expand-view').addEventListener('click',()=>openComparison(m));}
  return m;
 }
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const m=models.find(x=>x.figure===e.target);if(m)m.visible=e.isIntersecting;}),{threshold:.15});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{const m=models.find(x=>x.figure===e.target);if(m)m.visible=e.isIntersecting;}),{threshold:0});
 document.querySelectorAll('.motion-work').forEach(f=>setup(f));
 function openComparison(source){
  opener=source.figure.querySelector('.expand-view');const clone=source.figure.cloneNode(true);
